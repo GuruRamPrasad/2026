@@ -9,7 +9,6 @@ flowchart TB
     U[User / Client] --> LB[Load Balancer]
     LB --> ING[Ingress Controller]
     SVC --> ING[Ingress Controller]
-    ING --> POD1
 
     subgraph CLUSTER[Kubernetes Cluster]
         subgraph CP[Control Plane]
