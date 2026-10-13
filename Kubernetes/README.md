@@ -6,8 +6,8 @@ A clear overview of Kubernetes components, how they communicate, and how an appl
 
 ```mermaid
 flowchart TB
-    U[User / Client] --> LB[Load Balancer]
-    LB --> ING[Ingress Controller]
+    LB[Load Balancer] --> U[User / Client]
+    ING[Ingress Controller] --> LB
     SVC --> ING[Ingress Controller]
 
     subgraph CLUSTER[Kubernetes Cluster]
