@@ -10,13 +10,7 @@ The first diagram shows the whole cluster in one view. The diagrams after it zoo
 
 ```mermaid
 flowchart TB
-<<<<<<< HEAD
-    LB[Load Balancer] --> U[User / Client]
-    ING[Ingress Controller] --> LB
-    SVC --> ING[Ingress Controller]
-=======
     U[User / Client] --> LB[Load Balancer]
->>>>>>> 5db5c10 (Final Readme file)
 
     subgraph CLUSTER[Kubernetes Cluster]
         subgraph CP[Control Plane]
