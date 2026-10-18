@@ -1,0 +1,8 @@
+# Namespace: keeps all of the application's resources together.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-app
+  labels:
+    # Enforce the "restricted" Pod Security Standard for every Pod in this namespace.
+    pod-security.kubernetes.io/enforce: restricted
