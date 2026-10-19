@@ -1,0 +1,11 @@
+# ConfigMap: non-sensitive configuration passed to the app as environment variables.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-app-config
+  namespace: my-app
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"
+  DB_HOST: "my-database.example.com"
+  DB_PORT: "5432"
