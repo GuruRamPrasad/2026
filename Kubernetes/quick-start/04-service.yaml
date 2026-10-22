@@ -1,0 +1,17 @@
+# Service: stable virtual IP and DNS name (my-app.my-app.svc.cluster.local)
+# that load-balances traffic to the ready Pods labeled app=my-app.
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+  namespace: my-app
+  labels:
+    app: my-app
+spec:
+  type: ClusterIP
+  selector:
+    app: my-app
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
