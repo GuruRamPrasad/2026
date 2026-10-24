@@ -1,0 +1,12 @@
+# PodDisruptionBudget: keeps at least 2 Pods running during voluntary
+# disruptions such as node drains and cluster upgrades.
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: my-app
+  namespace: my-app
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: my-app
