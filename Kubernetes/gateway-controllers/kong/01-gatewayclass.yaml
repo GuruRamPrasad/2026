@@ -1,0 +1,11 @@
+# GatewayClass: tells Kubernetes which controller implements Gateways of this
+# class. Requires the Gateway API CRDs and Kong (README Section 8.4).
+# The unmanaged annotation tells Kong to use the proxy installed by its chart.
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: kong
+  annotations:
+    konghq.com/gatewayclass-unmanaged: "true"
+spec:
+  controllerName: konghq.com/kic-gateway-controller
