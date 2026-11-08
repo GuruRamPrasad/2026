@@ -1,0 +1,9 @@
+# GatewayClass: tells Kubernetes which controller implements Gateways of this
+# class. Requires the Gateway API CRDs and Envoy Gateway (README Section 8.5).
+# Envoy Gateway creates the proxy Pods for each Gateway itself.
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: envoy
+spec:
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
