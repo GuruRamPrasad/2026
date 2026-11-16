@@ -1,0 +1,19 @@
+# Namespace: organizes and isolates resources. Many policies (RBAC, quotas,
+# Pod Security) apply per namespace.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-app
+  labels:
+    # Every Pod in this namespace must meet the "restricted" Pod Security Standard.
+    pod-security.kubernetes.io/enforce: restricted
+---
+# Separate namespace for the log-collector DaemonSet. Node agents need host access
+# (hostPath volumes, running as root), which the restricted level forbids, so this
+# namespace is labeled "privileged". Keep such namespaces few and tightly controlled.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: logging
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
