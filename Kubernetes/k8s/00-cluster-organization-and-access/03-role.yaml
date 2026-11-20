@@ -1,0 +1,11 @@
+# Role: namespace-scoped permissions. Allows read-only access to Pods and
+# ConfigMaps in the my-app namespace only.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-and-config-reader
+  namespace: my-app
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "configmaps"]
+    verbs: ["get", "list", "watch"]
