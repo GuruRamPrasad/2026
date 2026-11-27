@@ -1,0 +1,18 @@
+# ResourceQuota: caps the total resources all workloads in my-app can use.
+# With CPU/memory request quotas set, every container must declare requests;
+# the LimitRange in 08-limitrange.yaml supplies defaults for those that don't.
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: my-app-quota
+  namespace: my-app
+spec:
+  hard:
+    requests.cpu: "4"
+    requests.memory: 8Gi
+    limits.memory: 16Gi
+    pods: "30"
+    persistentvolumeclaims: "10"
+    requests.storage: 100Gi
+    services.loadbalancers: "2"
+    services.nodeports: "2"
